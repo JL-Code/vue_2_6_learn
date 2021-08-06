@@ -15,7 +15,7 @@ const state = {
 
 observe(state)
 
-// 执行 autorun 
+// 执行 autorun 收集依赖项 
 
 autorun(() => {
     // dependency-tracking
@@ -34,5 +34,9 @@ autorun(() => {
 state.count++
 state.name = "wangll"
 
+console.log(state.name, state.count);
+
 dep.notify()
 // 应该打印 state.count:  1
+
+// Vue 

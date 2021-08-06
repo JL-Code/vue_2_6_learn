@@ -12,19 +12,19 @@
  */
 function observe(originalObj) {
 
-  let internalValue;
+
 
   Object.keys(originalObj).forEach(key => {
-    internalValue = originalObj[key];
+    let internalValue = originalObj[key];
 
     Object.defineProperty(originalObj, key, {
       get() {
         // 会覆盖 a 属性的默认的取值行为
-        console.log(`get key:${key} value:${internalValue}`);
+        // console.debug(`get key:${key} value:${internalValue}`);
         return internalValue;
       },
       set(newValue) {
-        console.log(`set key:${key} oldValue:${internalValue} newValue:${newValue}`);
+        // console.debug(`set key:${key} oldValue:${internalValue} newValue:${newValue}`);
         internalValue = newValue;
       }
     })
