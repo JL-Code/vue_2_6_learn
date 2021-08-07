@@ -10,33 +10,33 @@ const dep = new Dep()
 
 const state = {
     count: 0,
-    name: "jiangy"
+    name: 'jiangy',
 }
 
 observe(state)
 
-// 执行 autorun 收集依赖项 
+// 执行 autorun 收集依赖项
 
 autorun(() => {
     // dependency-tracking
     dep.depend()
-    console.log("state.count: ", state.count)
+    console.log('state.count: ', state.count)
     // 应该打印 state.count:  0
 })
 
 autorun(() => {
     // dependency-tracking
     dep.depend()
-    console.log("state.name: ", state.name)
+    console.log('state.name: ', state.name)
     // 应该打印 state.name:  wangll
 })
 
 state.count++
-state.name = "wangll"
+state.name = 'wangll'
 
-console.log(state.name, state.count);
+console.log(state.name, state.count)
 
 dep.notify()
 // 应该打印 state.count:  1
 
-// Vue 
+// Vue

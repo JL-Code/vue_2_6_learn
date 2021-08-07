@@ -1,5 +1,4 @@
 class Dep {
-
     constructor() {
         this.subscribers = new Set()
     }
@@ -13,20 +12,18 @@ class Dep {
 
     notify() {
         // 遍历执行 activeUpdate subscriber
-        this.subscribers.forEach(sub => sub())
-        console.log("subscribers ", this.subscribers)
+        this.subscribers.forEach((sub) => sub())
+        console.log('subscribers ', this.subscribers)
     }
 }
 
 // 使用 activeUpdate 用于标识函数运行状态（js 是单线程）
 let activeUpdate
 
-
 function autorun(update) {
     // 实现函数
 
     function wrappedUpdate() {
-
         activeUpdate = wrappedUpdate
 
         update()
